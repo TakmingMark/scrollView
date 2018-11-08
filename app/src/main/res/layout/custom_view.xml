@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.markwang.scrollview.CustomLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/customViewRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:minHeight="120dp">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AF7AC5"
+        android:text="TextView"
+        android:gravity="center"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:background="#7DCEA0"
+        android:text="TextView"
+        android:gravity="center"
+        android:textSize="25dp"/>
+</com.example.markwang.scrollview.CustomLinearLayout>
