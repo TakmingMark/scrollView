@@ -22,14 +22,14 @@ public class CustomTextView  extends android.support.v7.widget.AppCompatTextView
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         Log.e("textView",event.getAction()+"");
-        return false;
+        return super.dispatchTouchEvent(event);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
        boolean b=super.onTouchEvent(event);
         Log.e("TextView","TouchEvent:"+b);
-        return false;
+        return true;
     }
 
 

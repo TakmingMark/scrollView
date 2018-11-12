@@ -16,18 +16,10 @@ public class CustomListView extends ListView {
 
     public CustomListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        }
+    }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        int x = (int) ev.getX();
-        int y = (int) ev.getY();
-        int position = pointToPosition(x, y);
-        if(position!=INVALID_POSITION){
-            itemRootLinearLayout = ((DataHolder) getItemAtPosition(position)).itemRootLinearLayout;
-            itemRootLinearLayout.dispatchTouchEvent(ev);
-        }
-        //need to dispatch a task to the child by myself, otherwise the child not sensitive
         return super.dispatchTouchEvent(ev);
     }
 

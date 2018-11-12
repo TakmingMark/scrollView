@@ -14,6 +14,7 @@ public class CustomListViewAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
     private ArrayList<DataHolder> dataHolderArrayList;
     private View.OnClickListener clickListener;
+    private View.OnTouchListener touchListener;
     private CustomOnScrollListener customOnScrollListener;
 
     public CustomListViewAdapter(Context context, ArrayList<DataHolder> dataHolderArrayList) {
@@ -47,6 +48,7 @@ public class CustomListViewAdapter extends BaseAdapter {
             viewHolder.leftTextView = convertView.findViewById(R.id.textView);
             viewHolder.rightTextView = convertView.findViewById(R.id.textView2);
             viewHolder.rightTextView.setOnClickListener(clickListener);
+            viewHolder.rightTextView.setOnTouchListener(touchListener);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -64,6 +66,11 @@ public class CustomListViewAdapter extends BaseAdapter {
         this.clickListener = onClickListener;
     }
 
+    public void setOnTouchListener(View.OnTouchListener onTouchListener) {
+        this.touchListener = onTouchListener;
+    }
+
+
     public void setCustomOnScrollListener(CustomOnScrollListener customOnScrollListener){
         this.customOnScrollListener=customOnScrollListener;
     }
@@ -76,6 +83,6 @@ public class CustomListViewAdapter extends BaseAdapter {
     public static class ViewHolder {
         public CustomLinearLayout linearLayout;
         public TextView leftTextView;
-        public TextView rightTextView;
+        public CustomTextView rightTextView;
     }
 }

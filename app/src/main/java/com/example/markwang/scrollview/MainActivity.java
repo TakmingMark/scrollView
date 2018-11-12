@@ -3,11 +3,12 @@ package com.example.markwang.scrollview;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,CustomOnScrollListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,CustomOnScrollListener,View.OnTouchListener {
     CustomListView customListView;
     ArrayList<DataHolder> dataArrayList;
     CustomListViewAdapter customListViewAdapter;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         customListViewAdapter=new CustomListViewAdapter(MainActivity.this,dataArrayList);
         customListViewAdapter.setOnClickListener(this);
+        customListViewAdapter.setOnTouchListener(this);
         customListViewAdapter.setCustomOnScrollListener(this);
         customListView.setAdapter(customListViewAdapter);
     }
@@ -46,6 +48,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             previousCustomLinearLayout.revertScroll();
         }
         previousCustomLinearLayout=customLinearLayout;
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        if(v.getId()==R.id.textView2 && event.getAction()==MotionEvent.ACTION_UP){
+            int position=customListView.getPositionForView(v);
+            customListViewAdapter.deleteDataHolder(position);
+        }
+        Log.e("Main","onTouch:"+v.getId()+"");
+        return false;
     }
 }
 

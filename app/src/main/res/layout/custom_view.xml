@@ -17,7 +17,7 @@
         android:gravity="center"
         android:textSize="25dp"/>
 
-    <TextView
+    <com.example.markwang.scrollview.CustomTextView
         android:id="@+id/textView2"
         android:layout_width="200dp"
         android:layout_height="match_parent"
